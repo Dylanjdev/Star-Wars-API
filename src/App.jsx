@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './index.css'
 import Skeleton from '../components/Skeleton.jsx'
 
-const API_BASE = '/api' // proxied to https://swapi.py4e.com
+const API_BASE = 'https://swapi.dev/api'; // Use public API for production
 
 export default function App() {
   const [search, setSearch] = useState("");
