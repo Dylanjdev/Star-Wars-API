@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './index.css'
 import Skeleton from '../components/Skeleton.jsx'
 
-const API_BASE = 'https://swapi.dev/api'; // Use public API for production
+const API_BASE = 'https://swapi.py4e.com/api'; // Use py4e SWAPI mirror for production
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -86,37 +86,45 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>⭐ Star Wars Characters</h1>
+      <h1 style={{ marginBottom: '24px', fontSize: '2.5rem', fontWeight: 700, letterSpacing: '1px' }}>⭐ Star Wars Characters</h1>
 
-
-      <div className="controls">
-        <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1 || loading || search}>
-          ← Prev
-        </button>
-        <span>Page {page}</span>
-        <button onClick={() => setPage(p => (hasNext ? p + 1 : p))} disabled={!hasNext || loading || search}>
-          Next →
-        </button>
-      </div>
-
-      <div style={{ margin: "1em 0" }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
         <input
           type="text"
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search Star Wars characters..."
-          style={{ padding: "0.5em", width: "100%", maxWidth: 400 }}
+          style={{
+            padding: '0.75em 1em',
+            width: '100%',
+            maxWidth: 400,
+            borderRadius: '8px',
+            border: '1px solid #444',
+            fontSize: '1.1rem',
+            background: '#161616',
+            color: '#eee',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+          }}
         />
       </div>
 
+      <div className="controls" style={{ justifyContent: 'center', marginBottom: '24px' }}>
+        <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1 || loading || search}>
+          ← Prev
+        </button>
+        <span style={{ fontWeight: 500, fontSize: '1.1rem' }}>Page {page}</span>
+        <button onClick={() => setPage(p => (hasNext ? p + 1 : p))} disabled={!hasNext || loading || search}>
+          Next →
+        </button>
+      </div>
 
       {error && <p className="error">Error: {error}</p>}
       {loading ? (
-        <>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', marginTop: '32px' }}>
           <Skeleton width="200px" height="20px" />
           <Skeleton width="150px" height="20px" />
           <Skeleton width="180px" height="20px" />
-        </>
+        </div>
       ) : (
         <div className="grid">
           {(search ? searchResults : people).map((p) => (
@@ -128,9 +136,9 @@ export default function App() {
       )}
 
       {selected && (
-        <div className="details">
-          <h2>{selected.name}</h2>
-          <ul>
+        <div className="details" style={{ textAlign: 'center', marginTop: '32px' }}>
+          <h2 style={{ fontSize: '2rem', marginBottom: '16px' }}>{selected.name}</h2>
+          <ul style={{ listStyle: 'none', padding: 0, fontSize: '1.1rem', color: '#ccc' }}>
             <li><strong>Height:</strong> {selected.height} cm</li>
             <li><strong>Mass:</strong> {selected.mass} kg</li>
             <li><strong>Birth Year:</strong> {selected.birth_year}</li>
