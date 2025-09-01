@@ -1,12 +1,22 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Star Wars API React App
 
-Currently, two official plugins are available:
+>This is a React + Vite app that displays and searches Star Wars characters using the [SWAPI](https://swapi.dev/) API. Features include pagination, search, and skeleton loading UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Browse Star Wars characters
+- Search by name
+- View character details
+- Skeleton loading animation
 
-## Expanding the ESLint configuration
+## Getting Started
+1. Clone the repo: `git clone https://github.com/Dylanjdev/Star-Wars-API.git`
+2. Install dependencies: `npm install`
+3. Start dev server: `npm run dev`
+4. Build for production: `npm run build`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## View Live
+[View Live](https://dylanjdev.github.io/Star-Wars-API/)
+
+---
+Powered by [Vite](https://vitejs.dev/) & [React](https://react.dev/)
